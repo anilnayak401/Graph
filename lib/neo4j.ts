@@ -1,14 +1,14 @@
-import { Buffer } from 'buffer';
+import { Buffer } from 'buffer/';
 import neo4j, { Driver, Session, QueryResult, Record as Neo4jRecord } from 'neo4j-driver';
 
 // Polyfill global Buffer across all V8 Edge isolate scopes
-if (typeof globalThis !== 'undefined' && typeof (globalThis as any).Buffer === 'undefined') {
+if (typeof globalThis !== 'undefined') {
   (globalThis as any).Buffer = Buffer;
 }
-if (typeof global !== 'undefined' && typeof (global as any).Buffer === 'undefined') {
+if (typeof global !== 'undefined') {
   (global as any).Buffer = Buffer;
 }
-if (typeof self !== 'undefined' && typeof (self as any).Buffer === 'undefined') {
+if (typeof self !== 'undefined') {
   (self as any).Buffer = Buffer;
 }
 

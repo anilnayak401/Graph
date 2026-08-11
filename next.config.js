@@ -3,19 +3,19 @@ const webpack = require('webpack');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
-    // Inject global Buffer and process polyfills for Edge & Cloudflare runtimes
+    // Force Webpack to alias 'buffer' to the npm 'buffer/' package rather than Node stub
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      buffer: require.resolve('buffer/'),
+    };
+
+    // Inject global Buffer and process into all modules
     config.plugins.push(
       new webpack.ProvidePlugin({
-        Buffer: ['buffer', 'Buffer'],
+        Buffer: ['buffer/', 'Buffer'],
         process: 'process',
       })
     );
-
-    config.resolve.fallback = {
-      ...config.resolve.fallback,
-      buffer: require.resolve('buffer/'),
-      process: require.resolve('process/'),
-    };
 
     return config;
   },
