@@ -1,4 +1,10 @@
+import { Buffer } from 'buffer';
 import neo4j, { Driver, Session, QueryResult, Record as Neo4jRecord } from 'neo4j-driver';
+
+// Polyfill global Buffer for Cloudflare Edge Runtime / Workers isolate
+if (typeof globalThis.Buffer === 'undefined') {
+  (globalThis as any).Buffer = Buffer;
+}
 
 /**
  * CognoDB / Neo4j Driver Connection Setup for Cloudflare & Node.js Runtime

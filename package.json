@@ -11,6 +11,7 @@
     "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "lucide-react": "^0.427.0",

@@ -1,0 +1,3 @@
+name = "supply-chain-risk-analyzer"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
