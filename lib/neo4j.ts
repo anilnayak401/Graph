@@ -1,9 +1,15 @@
 import { Buffer } from 'buffer';
 import neo4j, { Driver, Session, QueryResult, Record as Neo4jRecord } from 'neo4j-driver';
 
-// Polyfill global Buffer for Cloudflare Edge Runtime / Workers isolate
-if (typeof globalThis.Buffer === 'undefined') {
+// Polyfill global Buffer across all V8 Edge isolate scopes
+if (typeof globalThis !== 'undefined' && typeof (globalThis as any).Buffer === 'undefined') {
   (globalThis as any).Buffer = Buffer;
+}
+if (typeof global !== 'undefined' && typeof (global as any).Buffer === 'undefined') {
+  (global as any).Buffer = Buffer;
+}
+if (typeof self !== 'undefined' && typeof (self as any).Buffer === 'undefined') {
+  (self as any).Buffer = Buffer;
 }
 
 /**
