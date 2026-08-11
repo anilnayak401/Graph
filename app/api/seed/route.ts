@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { seedDatabase } from '@/scripts/seed';
 
 export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 export async function POST() {
   try {

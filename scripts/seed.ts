@@ -1,10 +1,3 @@
-import dotenv from 'dotenv';
-import path from 'path';
-
-// Load environment variables from .env.local or .env
-dotenv.config({ path: path.resolve(process.cwd(), '.env.local') });
-dotenv.config({ path: path.resolve(process.cwd(), '.env') });
-
 import { runQuery, closeDriver, verifyConnection } from '../lib/neo4j';
 
 /**
@@ -312,8 +305,8 @@ export async function seedDatabase() {
   console.log('✨ Seed database populated successfully!');
 }
 
-// Allow CLI execution directly
-if (require.main === module) {
+// Allow CLI execution directly (npm run seed)
+if (typeof require !== 'undefined' && require.main === module) {
   seedDatabase()
     .then(() => {
       console.log('🎉 Seeding complete!');
@@ -324,3 +317,4 @@ if (require.main === module) {
       closeDriver().finally(() => process.exit(1));
     });
 }
+

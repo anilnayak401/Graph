@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { runQuery } from '@/lib/neo4j';
 
 export const dynamic = 'force-dynamic';
-export const runtime = 'nodejs';
+export const runtime = 'edge';
 
 export async function GET() {
   // Query to find components that rely on only a single supplier (Single Point of Failure)
