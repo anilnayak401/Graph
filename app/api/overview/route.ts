@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { runQuery } from '@/lib/neo4j';
 
 export const dynamic = 'force-dynamic';
-export const runtime = 'edge';
+export const runtime = 'nodejs';
 
 export async function GET() {
   try {
