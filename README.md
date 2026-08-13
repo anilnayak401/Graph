@@ -137,10 +137,16 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## 📸 Screenshots & Live Demo
 
-- **Hosted Demo**: `[Insert Hosted Link Here]`
-- **Dashboard Overview**: `![Dashboard Overview](placeholder_dashboard.png)`
-- **Region Outage Simulator**: `![Region Outage Simulator](placeholder_outage.png)`
-- **Interactive Graph Canvas**: `![Interactive Graph Canvas](placeholder_canvas.png)`
+- **Live Demo**: [https://graph-self-three.vercel.app](https://graph-self-three.vercel.app)
+
+### Dashboard Overview
+![Dashboard Overview](https://graph-self-three.vercel.app/screenshots/dashboard.png)
+
+### Region Outage Simulator
+![Region Outage Simulator](https://graph-self-three.vercel.app/screenshots/outage.png)
+
+### Interactive Graph Canvas
+![Interactive Graph Canvas](https://graph-self-three.vercel.app/screenshots/canvas.png)
 
 ---
 
