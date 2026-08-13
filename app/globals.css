@@ -53,3 +53,17 @@
 pre, code {
   font-family: 'JetBrains Mono', monospace;
 }
+
+/* Mobile Touch & Scroll Utilities */
+.touch-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

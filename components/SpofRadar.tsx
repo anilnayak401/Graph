@@ -40,24 +40,24 @@ export function SpofRadar() {
   return (
     <div className="space-y-4">
       {/* Control Panel Header */}
-      <div className="p-4 rounded-md bg-zinc-900 border border-zinc-800 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="p-3.5 sm:p-4 rounded-md bg-zinc-900 border border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4">
         <div>
           <div className="flex items-center gap-2">
-            <ShieldAlert className="w-4 h-4 text-zinc-300" />
-            <h2 className="text-sm font-semibold text-zinc-100">
+            <ShieldAlert className="w-4 h-4 text-zinc-300 shrink-0" />
+            <h2 className="text-xs sm:text-sm font-semibold text-zinc-100">
               Single Point of Failure (SPOF) Risk Matrix
             </h2>
           </div>
-          <p className="text-xs text-zinc-400 mt-0.5">
+          <p className="text-[11px] sm:text-xs text-zinc-400 mt-0.5">
             Identifies single-sourced components and high-risk supplier concentrations
           </p>
         </div>
         <button
           onClick={fetchSpofs}
           disabled={loading}
-          className="px-3 py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 text-xs font-medium transition-colors focus:ring-1 focus:ring-indigo-500 focus:outline-none disabled:opacity-50 inline-flex items-center gap-1.5"
+          className="w-full sm:w-auto justify-center px-3.5 py-2 sm:py-1.5 rounded-md bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-zinc-200 text-xs font-medium transition-colors focus:ring-1 focus:ring-indigo-500 focus:outline-none disabled:opacity-50 inline-flex items-center gap-1.5 active:scale-95 touch-manipulation shrink-0"
         >
-          <RefreshCw className={`w-3 h-3 text-zinc-400 ${loading ? 'animate-spin' : ''}`} />
+          <RefreshCw className={`w-3.5 h-3.5 sm:w-3 sm:h-3 text-zinc-400 ${loading ? 'animate-spin' : ''}`} />
           Run Scan
         </button>
       </div>
@@ -71,15 +71,15 @@ export function SpofRadar() {
         <EmptyState title="Zero Bottlenecks" description="All components are multi-sourced." />
       ) : (
         <div className="space-y-4">
-          <div className="rounded-md bg-zinc-900 border border-zinc-800 p-4">
+          <div className="rounded-md bg-zinc-900 border border-zinc-800 p-3.5 sm:p-4">
             <div className="flex items-center justify-between pb-3 border-b border-zinc-800 mb-3">
               <h3 className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
                 Identified Risk Bottlenecks ({spofData.length})
               </h3>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs font-mono">
+            <div className="overflow-x-auto touch-scroll">
+              <table className="w-full text-left text-xs font-mono min-w-[540px]">
                 <thead>
                   <tr className="border-b border-zinc-800 text-[10px] uppercase tracking-wider text-zinc-400">
                     <th className="py-2.5 px-3">Status</th>

@@ -44,9 +44,14 @@ export function StatsOverview({ counts, spofCount, loading = false }: StatsOverv
 
   if (loading) {
     return (
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 mb-4 sm:mb-6">
         {Array.from({ length: 5 }).map((_, i) => (
-          <div key={i} className="p-3.5 rounded-md bg-zinc-900/60 border border-zinc-800 animate-pulse space-y-2">
+          <div
+            key={i}
+            className={`p-3 sm:p-3.5 rounded-md bg-zinc-900/60 border border-zinc-800 animate-pulse space-y-2 ${
+              i === 4 ? 'col-span-2 sm:col-span-1 lg:col-span-1' : ''
+            }`}
+          >
             <div className="h-3 bg-zinc-800 rounded w-1/2"></div>
             <div className="h-6 bg-zinc-800 rounded w-3/4"></div>
           </div>
@@ -56,15 +61,17 @@ export function StatsOverview({ counts, spofCount, loading = false }: StatsOverv
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3 mb-4 sm:mb-6">
       {stats.map((stat, idx) => {
         const Icon = stat.icon;
         return (
           <div
             key={idx}
-            className={`p-3.5 rounded-md bg-zinc-900/80 border ${
+            className={`p-3 sm:p-3.5 rounded-md bg-zinc-900/80 border ${
               stat.isWarning ? 'border-amber-900/50 bg-amber-950/10' : 'border-zinc-800'
-            } flex flex-col justify-between`}
+            } flex flex-col justify-between ${
+              idx === 4 ? 'col-span-2 sm:col-span-1 lg:col-span-1' : ''
+            }`}
           >
             <div className="flex items-center justify-between mb-1.5">
               <span className="text-[10px] font-semibold uppercase tracking-wider text-zinc-400">
@@ -73,10 +80,10 @@ export function StatsOverview({ counts, spofCount, loading = false }: StatsOverv
               <Icon className={`w-3.5 h-3.5 ${stat.isWarning ? 'text-amber-400' : 'text-zinc-400'}`} />
             </div>
             <div>
-              <div className="text-xl font-bold text-zinc-100 font-mono tracking-tight">
+              <div className="text-lg sm:text-xl font-bold text-zinc-100 font-mono tracking-tight">
                 {stat.value}
               </div>
-              <p className="text-[11px] text-zinc-500 mt-0.5 font-sans truncate">
+              <p className="text-[10px] sm:text-[11px] text-zinc-500 mt-0.5 font-sans truncate">
                 {stat.description}
               </p>
             </div>
